@@ -1,76 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="navigation">
+			<a href="index.html">Startseite</a>
+			<a href="bildergallery.html">Bildergallerie</a>
+		</div>
+		<div class="container">
+			<div class="slide-show">
+				<div class="left box-shadow" onclick="prevDiv()">&#10094;</div>
+				<div class="bilder box-shadow">
+					<img class="mySlides" src="../images/scooter4.jpg" alt="TODO">
+					<img class="mySlides" src="../images/scooter5.jpg" alt="TODO">
+					<img class="mySlides" src="../images/scooter6.jpg" alt="TODO">
+					<img class="mySlides" src="../images/scooter7.jpg" alt="TODO">
+					<img class="mySlides" src="../images/scooter8.jpg" alt="TODO">
+				</div>
+				<div class="right box-shadow" onclick="nextDiv()">&#10095;</div>
+			</div>
+			<div class="">
+				<span class="badge demo" onclick="showDivs(1)"></span>
+				<span class="badge demo" onclick="showDivs(2)"></span>
+				<span class="badge demo" onclick="showDivs(3)"></span>
+				<span class="badge demo" onclick="showDivs(4)"></span>
+				<span class="badge demo" onclick="showDivs(5)"></span>
+			</div>
+		</div>
+		<script>
+			var slideIndex = 1;
+			var x = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			showDivs(slideIndex);
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+			function hideDivs() {
+				for (var i = 0; i < x.length; i++) {
+					x[i].className = x[i].className.replace(" animate-left", "").replace(" animate-right", "")
+						.replace(" block", "")
+					;
+				}
+				for (var i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" white", "");
+				}
+			}
 
-<body>
-    <div class="container">
-        <div class="slide-show">
-            <div class="left box-shadow" onclick="prevDiv()">&#10094;</div>
-            <div class="bilder box-shadow">
-                <img class="mySlides" src="../images/scooter4.jpg">
-                <img class="mySlides" src="../images/scooter5.jpg">
-                <img class="mySlides" src="../images/scooter6.jpg">
-                <img class="mySlides" src="../images/scooter7.jpg">
-                <img class="mySlides" src="../images/scooter8.jpg">
-            </div>
-            <div class="right box-shadow" onclick="nextDiv()">&#10095;</div>
-        </div>
-        <div class="">
-            <span class="badge demo" onclick="showDivs(1)"></span>
-            <span class="badge demo" onclick="showDivs(2)"></span>
-            <span class="badge demo" onclick="showDivs(3)"></span>
-            <span class="badge demo" onclick="showDivs(4)"></span>
-            <span class="badge demo" onclick="showDivs(5)"></span>
-        </div>
-    </div>
-    <script>
-        var slideIndex = 1;
-        var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
+			function prevDiv() {
+				hideDivs();
+				slideIndex -= 1;
+				if (slideIndex < 1) {
+					slideIndex = x.length
+				}
+				x[slideIndex - 1].className += " animate-left";
+				dots[slideIndex - 1].className += " white";
+			}
 
-        showDivs(slideIndex);
-
-        function hideDivs() {
-            for (var i = 0; i < x.length; i++) {
-                x[i].className = x[i].className.replace(" animate-left", "").replace(" animate-right", "")
-                .replace(" block", "");
-            }
-            for (var i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" white", "");
-            }
-        }
-        function prevDiv() {
-            
-            hideDivs();
-            slideIndex -= 1;
-            if (slideIndex < 1) { slideIndex = x.length }
-            x[slideIndex - 1].className += " animate-left";
-            dots[slideIndex - 1].className += " white";
-        }
-        function nextDiv() {
-            
-            hideDivs();
-            slideIndex += 1;
-            if (slideIndex > x.length) { slideIndex = 1 }
-            x[slideIndex - 1].className += " animate-right";
-            dots[slideIndex - 1].className += " white";
-        }
-        function showDivs(n) {
-            
-            hideDivs();
-            if (n > slideIndex) { x[n - 1].className += " animate-right"; }
-            if (n === slideIndex) { x[n - 1].className += " block"}
-            if (n < slideIndex) { x[n - 1].className += " animate-left"; }
-            dots[n - 1].className += " white";
-            slideIndex = n;
-        }
-    </script>
-</body>
-
+			function nextDiv() {
+				hideDivs();
+				slideIndex += 1;
+				if (slideIndex > x.length) {
+					slideIndex = 1
+				}
+				x[slideIndex - 1].className += " animate-right";
+				dots[slideIndex - 1].className += " white";
+			}
+	
+			function showDivs(n) {
+				hideDivs();
+				if (n > slideIndex) {
+					x[n - 1].className += " animate-right";
+				}
+				if (n === slideIndex) {
+					x[n - 1].className += " block"
+				}
+				if (n < slideIndex) {
+					x[n - 1].className += " animate-left";
+				}
+				dots[n - 1].className += " white";
+				slideIndex = n;
+			}
+		</script>
+	</body>
 </html>
