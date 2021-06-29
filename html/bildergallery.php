@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,28 +9,40 @@
 	<body>
 		<div class="navigation">
 			<a href="index.html">Startseite</a>
-			<a href="bildergallery.html">Bildergallerie</a>
+			<a href="bildergallery.php">Bildergallerie</a>
             <a href="registrierung.html">Registrierung</a>
 		</div>
 		<div class="container">
-			<div class="slide-show">
-				<div class="left box-shadow" onclick="prevDiv()">&#10094;</div>
-				<div class="bilder box-shadow">
-					<img class="mySlides" src="../images/scooter4.jpg" alt="TODO">
-					<img class="mySlides" src="../images/scooter5.jpg" alt="TODO">
-					<img class="mySlides" src="../images/scooter6.jpg" alt="TODO">
-					<img class="mySlides" src="../images/scooter7.jpg" alt="TODO">
-					<img class="mySlides" src="../images/scooter8.jpg" alt="TODO">
-				</div>
-				<div class="right box-shadow" onclick="nextDiv()">&#10095;</div>
-			</div>
-			<div class="">
-				<span class="badge demo" onclick="showDivs(1)"></span>
-				<span class="badge demo" onclick="showDivs(2)"></span>
-				<span class="badge demo" onclick="showDivs(3)"></span>
-				<span class="badge demo" onclick="showDivs(4)"></span>
-				<span class="badge demo" onclick="showDivs(5)"></span>
-			</div>
+			<?php
+				include '../functions/readCSV.php';
+		
+				$fileName = '../data/produkte.csv';
+				$tableArray = csv_to_array($fileName);
+		
+				echo "<div class='slide-show'>";
+				echo    "<div class='left box-shadow' onclick='prevDiv()'>&#10094;</div>";
+				echo    "<div class='bilder box-shadow'>";
+		
+				foreach ($tableArray as $produkt) {
+					if($produkt['verfuegbar'] == true){
+						echo "<img class='mySlides' src='../images/" . $produkt['picName'].".jpg'/>";
+		
+					}else{
+						echo "<img class='mySlides disabled' src='../images/" . $produkt['picName'].".jpg'/>";
+		
+					}
+				}
+				echo     "</div>";
+				echo     "<div class='right box-shadow' onclick='nextDiv()'>&#10095;</div>";
+				echo "</div>";
+				echo "<div class=''>";
+		
+				foreach ($tableArray as $key => $produkt){
+					echo     "<span class='badge demo' onclick='showDivs($key + 1)'></span>";
+				}
+		
+				echo "</div>";
+			?>
 		</div>
 		<div class="footer">
 			<div>
