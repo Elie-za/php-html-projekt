@@ -7,11 +7,11 @@ $customerData = sanitizeUserInput($_POST, ['email']);
 
 $customer = new Customer(
 	$customerData['username'],
-	$customerData['password'],
+	$customerData['psw'],
 	$customerData['email'],
 	$customerData['street'],
-	$customerData['hausnummer'],
-	$customerData['postleitzahl'],
+	$customerData['hausnr'],
+	$customerData['plz'],
 	$customerData['ort'],
 	$customerData['age']
 );
