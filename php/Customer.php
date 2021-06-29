@@ -81,7 +81,7 @@ class Customer
 		$fields = get_object_vars($this);
 		foreach ($fields as $key => $field) {
 			if ($field === null) {
-				$fields[$key] = '-';
+				$fields[$key] = 'NULL';
 			}
 		}
 		$dataString = implode('|', $fields);
