@@ -8,13 +8,13 @@
 	</head>
 	<body>
 		<div class="navigation">
-			<a href="index.html">Startseite</a>
+			<a href="../html/index.html">Startseite</a>
 			<a href="bildergallery.php">Bildergallerie</a>
-            <a href="registrierung.html">Registrierung</a>
+			<a href="../html/registrierung.html">Registrierung</a>
 		</div>
 		<div class="container">
 			<?php
-				include '../functions/readCSV.php';
+				include '../php/functions.php';
 		
 				$fileName = '../data/produkte.csv';
 				$tableArray = csv_to_array($fileName);
