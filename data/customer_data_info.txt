@@ -1,2 +1,2 @@
 The customer data is structured after following scheme:
-Username|Password|E-Mail|Street|House number|ZIP Code|Place|Age|
+Nachname|Vorname|Password|E-Mail|Street|House number|ZIP Code|Place|Age|

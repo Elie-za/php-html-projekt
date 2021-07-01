@@ -4,7 +4,12 @@ class Customer
 	/**
 	 * @var string
 	 */
-	private $username;
+	private $nachname;
+
+	/**
+	 * @var string
+	 */
+	private $vorname;
 
 	/**
 	 * @var string
@@ -42,7 +47,8 @@ class Customer
 	private $age;
 
 	/**
-	 * @param string $username
+	 * @param string $nachname
+	 * @param string $vorname
 	 * @param string $password
 	 * @param string $email
 	 * @param string $street
@@ -51,13 +57,14 @@ class Customer
 	 * @param string $place
 	 * @param int $age
 	 */
-	public function __construct($username, $password, $email, $street, $houseNumber, $zipCode, $place, $age)
+	public function __construct($nachname, $vorname, $password, $email, $street, $houseNumber, $zipCode, $place, $age)
 	{
 		$hashedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 5]);
 		if (!is_string($hashedPassword)) {
 			die('Something went wrong :(');
 		}
-		$this->username = $username;
+		$this->nachname = $nachname;
+		$this->vorname = $vorname;
 		$this->password = $hashedPassword;
 		$this->email = $email;
 		$this->street = $street;
@@ -86,5 +93,77 @@ class Customer
 		}
 		$dataString = implode('|', $fields);
 		file_put_contents('../data/customer_data.txt', $dataString . PHP_EOL, FILE_APPEND);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getNachname()
+	{
+		return $this->nachname;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVorname()
+	{
+		return $this->vorname;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPassword()
+	{
+		return $this->password;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getStreet()
+	{
+		return $this->street;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getHouseNumber()
+	{
+		return $this->houseNumber;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getZipCode()
+	{
+		return $this->zipCode;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPlace()
+	{
+		return $this->place;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getAge()
+	{
+		return $this->age;
 	}
 }

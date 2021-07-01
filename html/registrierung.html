@@ -1,40 +1,59 @@
-<link rel="stylesheet" href="../css/style.css">
-<div class='container box-shadow formular'>
-    <form action='../php/registrierung.php' method='POST' autocomplete="off">
-        <div>
-            <input type='text' name="username" id='username' value="" required>
-            <label for='username'>Benutzername</label>
-        </div>
-        <div>
-            <input type='email' name='email' id='email' value="" required>
-            <label for='email'>Email</label>
-        </div>
-        <div>
-            <input type='password' name='psw' id='psw' value="" required>
-            <label for='psw'>Passwort</label>
-        </div>
-        <div>
-            <input type='text' name='age' id='age' value="" required>
-            <label for='age'>Alter</label>
-        </div>
-        <div>
-            <input type='text' name='street' id='street' value="" required>
-            <label for='street'>Straße</label>
-        </div>
-        <div>
-            <input type='text' name='hausnr' id='hausnr' value="" required>
-            <label for='hausnr'>Hausnummer</label>
-        </div>
-        <div>
-            <input type='text' name='plz' id='plz' value="" required>
-            <label for='plz'>Postleitzahl</label>
-        </div>
-        <div>
-            <input type='text' name='ort' id='ort' value="" required>
-            <label for='ort'>Ort</label>
-        </div>
-        <div>
-            <button type="submit">registrieren</button>
-        </div>
-    </form>
-</div>
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Registrierung</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="navigation">
+			<a href="index.html">Startseite</a>
+			<a href="../php/bildergallery.php">Bildergallerie</a>
+			<a href="registrierung.html">Registrierung</a>
+		</div>
+		<div class='container box-shadow formular'>
+			<form action='../php/registrierung.php' method='POST' autocomplete="off">
+				<div>
+					<input type='text' name="nachname" id='nachname' value="" required>
+					<label for='nachname'>Nachname</label>
+				</div>
+				<div>
+					<input type='text' name="vorname" id='vorname' value="" required>
+					<label for='vorname'>Vorname</label>
+				</div>
+				<div>
+					<input type='email' name='email' id='email' value="" required>
+					<label for='email'>Email</label>
+				</div>
+				<div>
+					<input type='password' name='psw' id='psw' value="" required>
+					<label for='psw'>Passwort</label>
+				</div>
+				<div>
+					<input type='text' name='age' id='age' value="" required>
+					<label for='age'>Alter</label>
+				</div>
+				<div>
+					<input type='text' name='street' id='street' value="" required>
+					<label for='street'>Straße</label>
+				</div>
+				<div>
+					<input type='text' name='hausnr' id='hausnr' value="" required>
+					<label for='hausnr'>Hausnummer</label>
+				</div>
+				<div>
+					<input type='text' name='plz' id='plz' value="" required>
+					<label for='plz'>Postleitzahl</label>
+				</div>
+				<div>
+					<input type='text' name='ort' id='ort' value="" required>
+					<label for='ort'>Ort</label>
+				</div>
+				<div>
+					<button type="submit">registrieren</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
