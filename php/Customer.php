@@ -1,4 +1,5 @@
 <?php
+
 class Customer
 {
 	/**
@@ -83,8 +84,16 @@ class Customer
 		return password_verify($password, $this->password);
 	}
 
+	/**
+	 * Returns false if customer already exists. Otherwise attempts to write data in customer data file and returns true.
+	 * @return bool
+	 */
 	public function writeDataIntoFile()
 	{
+		$existingCustomerData = searchCustomerData($this->email);
+		if (!empty($existingCustomerData)) {
+			return false;
+		}
 		$fields = get_object_vars($this);
 		foreach ($fields as $key => $field) {
 			if ($field === null) {
@@ -93,6 +102,7 @@ class Customer
 		}
 		$dataString = implode('|', $fields);
 		file_put_contents('../data/customer_data.txt', $dataString . PHP_EOL, FILE_APPEND);
+		return true;
 	}
 
 	/**

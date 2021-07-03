@@ -29,6 +29,24 @@ function csv_to_array($fileName)
 }
 
 /**
+ * Function to search customer data with. For a precise search it is advised to search for the mail address.
+ * @param $searchValue
+ * @return array|null
+ */
+function searchCustomerData($searchValue)
+{
+	$customerFile = file('../data/customer_data.txt');
+	foreach ($customerFile as $line) {
+		$dataArray = (array)explode('|', $line);
+		$isSearchedValue = in_array($searchValue, $dataArray);
+		if ($isSearchedValue) {
+			return $dataArray;
+		}
+	}
+	return null;
+}
+
+/**
  * Expects an one dimensional array to iterate over an sanitize the value. The output array should contain the same keys
  * as the input array.
  * @param array $userInput The array to sanitize.

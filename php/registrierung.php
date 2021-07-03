@@ -17,7 +17,7 @@ $customer = new Customer(
 	$customerData['age']
 );
 
-$customer->writeDataIntoFile();
+$costumerAlreadyExists = $customer->writeDataIntoFile();
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +35,22 @@ $customer->writeDataIntoFile();
 			<a href="../html/registrierung.html">Registrierung</a>
 		</div>
 		<div>
-			Sie haben sich mit folgenden Daten erfolgreich registriert:<br>
-			<?= $customer->getNachname() . ' ' . $customer->getVorname() . '<br>' ?>
-			<?= $customer->getEmail() . '<br>' ?>
-			<?= $customer->getStreet() . ' ' . $customer->getHouseNumber() . '<br>' ?>
-			<?= $customer->getZipCode() . ' ' . $customer->getPlace() . '<br>' ?>
+			<?php if ($costumerAlreadyExists): ?>
+				Sie haben sich mit folgenden Daten erfolgreich registriert:<br>
+				<?= $customer->getNachname() . ' ' . $customer->getVorname() . '<br>' ?>
+				<?= $customer->getEmail() . '<br>' ?>
+				<?= $customer->getStreet() . ' ' . $customer->getHouseNumber() . '<br>' ?>
+				<?= $customer->getZipCode() . ' ' . $customer->getPlace() . '<br>' ?>
+				Vielen Dank für Ihre Unterstützung!
+			<?php else: ?>
+				<div>
+					Leider konnten wir Sie nicht registrieren.<br>
+					Prüfen Sie bitte Ihre Anmeldedaten auf Richtigkeit.<br>
+				</div>
+				<div>
+					Bei Fragen können Sie uns unter folgender Mail Adresse erreichen: support@ego.com
+				</div>
+			<?php endif; ?>
 		</div>
 		<div class="footer">
 			<div>
