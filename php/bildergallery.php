@@ -14,33 +14,26 @@
 		</div>
 		<div class="container">
 			<?php
-				include '../php/functions.php';
-		
-				$fileName = '../data/produkte.csv';
-				$tableArray = csv_to_array($fileName);
-		
-				echo "<div class='slide-show'>";
-				echo    "<div class='left box-shadow' onclick='prevDiv()'>&#10094;</div>";
-				echo    "<div class='bilder box-shadow'>";
-		
-				foreach ($tableArray as $produkt) {
-					if($produkt['verfuegbar'] == true){
-						echo "<img class='mySlides' src='../images/" . $produkt['picName'].".jpg'/>";
-		
-					}else{
-						echo "<img class='mySlides disabled' src='../images/" . $produkt['picName'].".jpg'/>";
-		
+				$pathnames = [];
+				$productImagesDir = new DirectoryIterator('../images/products');
+				foreach ($productImagesDir as $directoryContents) {
+					if ($directoryContents->isFile()) {
+						$pathnames[] = $directoryContents->getPathname();
 					}
 				}
-				echo     "</div>";
-				echo     "<div class='right box-shadow' onclick='nextDiv()'>&#10095;</div>";
+				echo "<div class='slide-show'>";
+					echo "<div class='left box-shadow' onclick='prevDiv()'>&#10094;</div>";
+					echo "<div class='bilder box-shadow'>";
+						foreach ($pathnames as $pathname) {
+							echo "<img class='mySlides' src='" . $pathname . "'/>";
+						}
+					echo "</div>";
+					echo "<div class='right box-shadow' onclick='nextDiv()'>&#10095;</div>";
 				echo "</div>";
-				echo "<div class=''>";
-		
-				foreach ($tableArray as $key => $produkt){
-					echo     "<span class='badge demo' onclick='showDivs($key + 1)'></span>";
-				}
-		
+				echo "<div>";
+					for ($i = 0; $i < count($pathnames); $i++){
+						echo "<span class='badge demo' onclick='showDivs($i + 1)'></span>";
+					}
 				echo "</div>";
 			?>
 		</div>
