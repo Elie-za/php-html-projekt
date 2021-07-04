@@ -39,13 +39,15 @@ foreach ($customerFile as $index => $line) {
 		<div class='container box-shadow formular'>
 			<form action='../php/mieten.php' method='POST' autocomplete="off">
 				<div>
-					<select name="escooter">
+					<!-- <select name="escooter"> -->
 						<?php foreach ($products as $product): ?>
-							<option <?php if ($selectedProductId === $product->getId()) { echo 'selected="selected"'; } ?> value="<?= $product->getId() ?>">
-								<?= $product->getName() ?>
-							</option>
+							<p>
+							<?php if ($selectedProductId === $product->getId()){
+								echo "Ausgewältes Produkt: " . $product->getName();
+							} ?>
+							</p>
 						<?php endforeach; ?>
-					</select>
+					<!-- </select> -->
 				</div>
 				<div>
 					<input type='text' name="nachname" id='nachname' value="" required>
