@@ -35,12 +35,14 @@ function csv_to_array($fileName)
  */
 function getSearchedDataFromFile($searchValue, $filePath)
 {
-	$customerFile = file($filePath);
-	foreach ($customerFile as $line) {
-		$dataArray = (array)explode('|', $line);
-		$isValueInData = in_array($searchValue, $dataArray);
-		if ($isValueInData) {
-			return $dataArray;
+	if (file_exists($filePath)) {
+		$customerFile = file($filePath);
+		foreach ($customerFile as $line) {
+			$dataArray = (array)explode('|', $line);
+			$isValueInData = in_array($searchValue, $dataArray);
+			if ($isValueInData) {
+				return $dataArray;
+			}
 		}
 	}
 	return null;
