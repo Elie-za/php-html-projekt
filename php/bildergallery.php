@@ -43,8 +43,9 @@ include 'Product.php';
 			<div class='bilder box-shadow'>
 				<?php
 				foreach ($products as $product) {
-					/* echo "<div>" . $product->getName() . "</div>"; */
-					echo "<img class='mySlides' src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/>";
+					echo "<div class='beschreibung'>". " Produktname: " . $product->getName() . " ". $product->getModel() . "</div>";
+					echo "<div class='mySlides'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
+					echo "<div class='preis'>". " Mietpreis: <br/>" . $product->getPrice() . " €/Tag" . "</div>";
 				}
 				?>
 			</div>
@@ -53,8 +54,6 @@ include 'Product.php';
 
 			?>
 		</div>
-		<!-- Eine Javascript Funktion, balbalbal -->
-		<button onclick="mieten()">Mieten</button>
 		<div>
 			<?php
 			for ($i = 0; $i < count($products); $i++) {
@@ -62,6 +61,8 @@ include 'Product.php';
 			}
 			?>
 		</div>
+		<!-- Eine Javascript Funktion, balbalbal -->
+		<button onclick="mieten()">Scooter mieten</button>
 	</div>
 	<div class="footer">
 		<div>
@@ -84,12 +85,16 @@ include 'Product.php';
 		var slideIndex = 1;
 		var x = document.getElementsByClassName("mySlides");
 		var dots = document.getElementsByClassName("demo");
+		var beschreibung = document.getElementsByClassName("beschreibung");
+		var preis = document.getElementsByClassName("preis");
 		showDivs(slideIndex);
 
 		function hideDivs() {
 			for (var i = 0; i < x.length; i++) {
 				x[i].className = x[i].className.replace(" animate-left", "").replace(" animate-right", "")
 					.replace(" block", "");
+				beschreibung[i].className = beschreibung[i].className.replace(" block", "");
+				preis[i].className = preis[i].className.replace(" block", "");
 			}
 			for (var i = 0; i < dots.length; i++) {
 				dots[i].className = dots[i].className.replace(" white", "");
@@ -103,6 +108,8 @@ include 'Product.php';
 				slideIndex = x.length
 			}
 			x[slideIndex - 1].className += " animate-left";
+			beschreibung[slideIndex - 1].className += " block";
+			preis[slideIndex - 1].className += " block";
 			dots[slideIndex - 1].className += " white";
 		}
 
@@ -113,6 +120,8 @@ include 'Product.php';
 				slideIndex = 1
 			}
 			x[slideIndex - 1].className += " animate-right";
+			beschreibung[slideIndex - 1].className += " block";
+			preis[slideIndex - 1].className += " block";
 			dots[slideIndex - 1].className += " white";
 		}
 
@@ -120,19 +129,25 @@ include 'Product.php';
 			hideDivs();
 			if (n > slideIndex) {
 				x[n - 1].className += " animate-right";
+				beschreibung[n - 1].className += " block";
+				preis[n - 1].className += " block";
 			}
 			if (n === slideIndex) {
-				x[n - 1].className += " block"
+				x[n - 1].className += " block";
+				beschreibung[n - 1].className += " block";
+				preis[n - 1].className += " block";
 			}
 			if (n < slideIndex) {
 				x[n - 1].className += " animate-left";
+				beschreibung[n - 1].className += " block";
+				preis[n - 1].className += " block";
 			}
 			dots[n - 1].className += " white";
 			slideIndex = n;
 		}
 
 		function mieten() {
-			window.location.href = '../php/mieten.php?id=' + x[slideIndex - 1].id;
+			window.location.href = '../php/mieten.php?id=' + x[slideIndex - 1].getElementsByTagName('IMG')[0].id;
 		}
 	</script>
 </body>

@@ -68,7 +68,10 @@ body {
 	align-items: center;
 	height: 500px;
 }
-
+.beschreibung,
+.preis{
+	width: 100px;
+}
 img {
 	max-width: 100%;
 	max-height: 100%;
@@ -81,13 +84,26 @@ img {
 	border-radius: 5px;
 	overflow: hidden;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
 .mySlides {
 	display: none;
-	object-fit: cover;
+	width: 350px;
+}
+.mySlides img{
+	object-fit:scale-down;
+	width: 350px;
+}
+.slide-show .beschreibung,
+.slide-show .preis{
+	display: none;    
+	position: relative;
+    top: 200px;
+    color: white;
+    background-color: #282a35;
+    border-radius: 20px;
 }
 
 @keyframes animateleft {
@@ -125,7 +141,7 @@ img {
 }
 
 .block {
-	display: block;
+	display: block !important;
 }
 
 .left, .right {
@@ -221,7 +237,7 @@ img {
 	top: -10px;
 	color: #4c60d1;
 }
-.formular button{
+button{
 	font-size: 20px;
 	padding: 5px 15px;
 	margin-top: 10px;
@@ -231,6 +247,6 @@ img {
 	border-radius: 5px;
 	border: none;
 }
-.formular button:hover{
+button:hover{
 	background-color: #4d4f5e;
 }
