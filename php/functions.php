@@ -29,17 +29,17 @@ function csv_to_array($fileName)
 }
 
 /**
- * Function to search customer data with. For a precise search it is advised to search for the mail address.
  * @param $searchValue
+ * @param string $filePath
  * @return array|null
  */
-function searchCustomerData($searchValue)
+function getSearchedDataFromFile($searchValue, $filePath)
 {
-	$customerFile = file('../data/customer_data.txt');
+	$customerFile = file($filePath);
 	foreach ($customerFile as $line) {
 		$dataArray = (array)explode('|', $line);
-		$isSearchedValue = in_array($searchValue, $dataArray);
-		if ($isSearchedValue) {
+		$isValueInData = in_array($searchValue, $dataArray);
+		if ($isValueInData) {
 			return $dataArray;
 		}
 	}

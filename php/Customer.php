@@ -90,7 +90,7 @@ class Customer
 	 */
 	public function writeDataIntoFile()
 	{
-		$existingCustomerData = searchCustomerData($this->email);
+		$existingCustomerData = getSearchedDataFromFile($this->email, '../data/customer_data.txt');
 		if (!empty($existingCustomerData)) {
 			return false;
 		}

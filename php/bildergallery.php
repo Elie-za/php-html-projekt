@@ -1,3 +1,9 @@
+<?php
+
+include 'functions.php';
+include 'Product.php';
+
+?>
 <!DOCTYPE html>
 <html lang="de">
 	<head>
@@ -14,24 +20,33 @@
 		</div>
 		<div class="container">
 			<?php
-				$pathnames = [];
+				$products = [];
 				$productImagesDir = new DirectoryIterator('../images/products');
 				foreach ($productImagesDir as $directoryContents) {
 					if ($directoryContents->isFile()) {
-						$pathnames[] = $directoryContents->getPathname();
+						$productData = getSearchedDataFromFile($directoryContents->getFilename(), '../data/produkte.csv');
+						$products[] = new Product(
+							$productData[4],
+							$productData[3],
+							$productData[0],
+							$productData[1],
+							$productData[5],
+							$directoryContents->getPathname()
+						);
 					}
 				}
 				echo "<div class='slide-show'>";
 					echo "<div class='left box-shadow' onclick='prevDiv()'>&#10094;</div>";
 					echo "<div class='bilder box-shadow'>";
-						foreach ($pathnames as $pathname) {
-							echo "<img class='mySlides' src='" . $pathname . "'/>";
+						foreach ($products as $product) {
+							echo "<img class='mySlides' src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/>";
 						}
 					echo "</div>";
 					echo "<div class='right box-shadow' onclick='nextDiv()'>&#10095;</div>";
 				echo "</div>";
 				echo "<div>";
-					for ($i = 0; $i < count($pathnames); $i++){
+					echo '<button onclick="mieten()">Mieten</button>';
+					for ($i = 0; $i < count($products); $i++){
 						echo "<span class='badge demo' onclick='showDivs($i + 1)'></span>";
 					}
 				echo "</div>";
@@ -104,6 +119,10 @@
 				}
 				dots[n - 1].className += " white";
 				slideIndex = n;
+			}
+
+			function mieten() {
+				window.location.href = '../php/mieten.php?id=' + x[slideIndex - 1].id;
 			}
 		</script>
 	</body>

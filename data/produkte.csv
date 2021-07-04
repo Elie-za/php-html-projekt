@@ -1,7 +1,7 @@
-name,model,verfuegbar,id,picName,price
-Anaquda,c20,1,s0,scooter4,50
-Bestial Wolf,0,m10,s1,scooter5,75
-Blunt,ts15,1,s2,scooter6,60
-CRISP Scooter,ebx,1,s3,scooter7,55
-District,avc,1,s4,scooter8,50
-Dominato,ab10,1,s5,scooter9,55
+name|model|verfuegbar|id|picName|price
+Anaquda|c20|1|s0|scooter4.jpg|50
+Bestial Wolf|m10|0|s1|scooter5.jpg|75
+Blunt|ts15|1|s2|scooter6.jpg|60
+CRISP Scooter|ebx|1|s3|scooter7.jpg|55
+District|avc|1|s4|scooter8.jpg|50
+Dominato|ab10|1|s5|scooter9.jpg|55
