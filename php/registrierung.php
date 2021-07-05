@@ -8,7 +8,7 @@ $customerData = sanitizeUserInput($_POST, ['email']);
 $customer = new Customer(
 	$customerData['nachname'],
 	$customerData['vorname'],
-	$customerData['psw'],
+	['notHashed' => $customerData['psw']],
 	$customerData['email'],
 	$customerData['street'],
 	$customerData['hausnr'],
