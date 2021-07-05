@@ -44,7 +44,7 @@ include 'Product.php';
 				<?php
 				foreach ($products as $product) {
 					echo "<div class='beschreibung'>". " Produktname: " . $product->getName() . " ". $product->getModel() . "</div>";
-					echo "<div class='mySlides'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
+					echo "<div class='mySlides'><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
 					echo "<div class='preis'>". " Mietpreis: <br/>" . $product->getPrice() . " €/Tag" . "</div>";
 				}
 				?>
@@ -163,7 +163,18 @@ include 'Product.php';
 		}
 
 		function mieten() {
-			window.location.href = '../php/mieten.php?id=' + x[slideIndex - 1].getElementsByTagName('IMG')[0].id;
+			let checkboxes = document.getElementsByClassName('scooter-checkbox');
+			let checkedIds = [];
+			for (let i = 0; i < checkboxes.length; i++) {
+				if (checkboxes[i].checked === true) {
+					checkedIds.push(checkboxes[i].id);
+				}
+			}
+			if (checkedIds.length > 0) {
+				window.location.href = '../php/mieten.php?ids=' + checkedIds;
+			} else {
+				window.location.href = '../php/mieten.php?ids=' + x[slideIndex - 1].getElementsByTagName('IMG')[0].id;
+			}
 		}
 	</script>
 </body>
