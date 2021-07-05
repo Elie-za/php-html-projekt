@@ -16,6 +16,10 @@ body {
 	margin: auto;
 }
 
+.display-none {
+	display: none !important;
+}
+
 .navigation {
 	background-color: #282a35;
 	padding: 10px 0;

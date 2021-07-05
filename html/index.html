@@ -45,6 +45,22 @@
 				<span id="imprint-ceo">Geschäftsführer:</span>
 				<span id="imprint-ceo-names">Dr. Acula Graf,<br>Dr. Vivien Agina</span>
 			</div>
+			<form action="../php/anmeldung.php" method="post" id="login">
+				<input name="email" type="text">
+				<input name="password" type="text">
+				<input type="submit" value="Login">
+			</form>
+			<div id="session">
+				You are logged in.
+				<button onclick="window.location.href = '../php/logout.php';">Logout</button>
+			</div>
+			<script>
+				if (document.cookie.includes('e-go-mobility=loggedIn')) {
+					document.getElementById('login').className = 'display-none';
+				} else {
+					document.getElementById('session').className = 'display-none';
+				}
+			</script>
 		</div>
 	</body>
 </html>

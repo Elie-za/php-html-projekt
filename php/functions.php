@@ -76,3 +76,14 @@ function sanitizeUserInput($userInput, $emailKeys = [])
 	}
 	return $sanitizedUserInput;
 }
+
+function redirectToLastPage()
+{
+	$lastUrlArray = empty($_SERVER['HTTP_REFERER']) ? null : explode('/', $_SERVER['HTTP_REFERER']);
+	$lastUrlArrayLength = count($lastUrlArray);
+	if (!empty($lastUrlArray)) {
+		header('Location: /php-html-projekt/' . $lastUrlArray[$lastUrlArrayLength - 2] . '/' . $lastUrlArray[$lastUrlArrayLength - 1]);
+	} else {
+		header('Location: /php-html-projekt/html/index.html');
+	}
+}
