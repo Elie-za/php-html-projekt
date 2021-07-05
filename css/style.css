@@ -134,10 +134,7 @@ body {
 	align-items: center;
 	height: 500px;
 }
-.beschreibung,
-.preis{
-	width: 100px;
-}
+
 img {
 	max-width: 100%;
 	max-height: 100%;
@@ -164,9 +161,13 @@ img {
 }
 .slide-show .beschreibung,
 .slide-show .preis{
-	display: none;    
+	width: 150px;
+	display: none;
+	padding: 10px;    
 	position: relative;
     top: 200px;
+	font-size: 16px;
+	font-weight: bold;
     color: white;
     background-color: #282a35;
     border-radius: 2px;
@@ -295,13 +296,14 @@ img {
 }
 
 .formular input:focus, .formular input:valid {
-	border-color: #4c60d1;
+	border-color: rgb(0, 150, 0);
 }
 
 .formular input:focus~label, .formular input:valid~label {
 	font-size: 14px;
+	font-weight: bold;
 	top: -10px;
-	color: #4c60d1;
+	color: rgb(0, 150, 0);
 }
 button{
 	font-size: 20px;

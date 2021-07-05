@@ -15,7 +15,7 @@ include 'Product.php';
 </head>
 
 <body>
-<div class="header">
+	<div class="header">
 		<div class="logo">
 		</div>
 		<div class="login">
@@ -34,6 +34,13 @@ include 'Product.php';
 			<a href="bildergallery.php">Bildergallerie</a>
 			<a href="../html/registrierung.html">Registrierung</a>
 		</div>
+		<script>
+			if (document.cookie.includes('e-go-mobility=loggedIn')) {
+				document.getElementById('login').className = 'display-none';
+			} else {
+				document.getElementById('session').className = 'display-none';
+			}
+		</script>
 	</div>
 	<div class="container">
 		<?php
@@ -59,7 +66,7 @@ include 'Product.php';
 				<?php
 				foreach ($products as $product) {
 					echo "<div class='beschreibung'>". " Produktname: " . $product->getName() . " ". $product->getModel() . "</div>";
-					echo "<div class='mySlides'><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
+					echo "<div class='mySlides'><label>Dieser Scooter auswählen</label><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
 					echo "<div class='preis'>". " Mietpreis: <br/>" . $product->getPrice() . " €/Tag" . "</div>";
 				}
 				?>
@@ -95,22 +102,6 @@ include 'Product.php';
 			<span id="imprint-ceo">Geschäftsführer:</span>
 			<span id="imprint-ceo-names">Dr. Acula Graf,<br>Dr. Vivien Agina</span>
 		</div>
-		<form action="../php/anmeldung.php" method="post" id="login">
-			<input name="email" type="text">
-			<input name="password" type="text">
-			<input type="submit" value="Login">
-		</form>
-		<div id="session">
-			You are logged in.
-			<button onclick="window.location.href = '../php/logout.php';">Logout</button>
-		</div>
-		<script>
-			if (document.cookie.includes('e-go-mobility=loggedIn')) {
-				document.getElementById('login').className = 'display-none';
-			} else {
-				document.getElementById('session').className = 'display-none';
-			}
-		</script>
 	</div>
 	<script>
 		var slideIndex = 1;

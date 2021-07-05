@@ -31,11 +31,33 @@ foreach ($customerFile as $index => $line) {
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
+	<div class="header">
+		<div class="logo">
+		</div>
+		<div class="login">
+			<form action="anmeldung.php" method="post" id="login">
+				<input name="email" type="text">
+				<input name="password" type="text">
+				<input type="submit" value="Login">
+			</form>
+			<div id="session">
+				You are logged in.
+				<button onclick="window.location.href = '../php/logout.php';">Logout</button>
+			</div>
+		</div>
 		<div class="navigation">
 			<a href="../html/index.html">Startseite</a>
 			<a href="bildergallery.php">Bildergallerie</a>
 			<a href="../html/registrierung.html">Registrierung</a>
 		</div>
+		<script>
+			if (document.cookie.includes('e-go-mobility=loggedIn')) {
+				document.getElementById('login').className = 'display-none';
+			} else {
+				document.getElementById('session').className = 'display-none';
+			}
+		</script>
+	</div>
 		<div class='container box-shadow formular'>
 			<form action='../php/mieten.php' method='POST' autocomplete="off">
 				<div>
