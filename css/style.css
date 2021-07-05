@@ -2,6 +2,7 @@
 	user-select: none;
 	/* Sollte nur für die Fälle wo es benötigt wird genutzt werden.*/
 	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
 }
 
 html {
@@ -20,22 +21,83 @@ body {
 	display: none !important;
 }
 
-.navigation {
+.header {
 	background-color: #282a35;
-	padding: 10px 0;
+	position: relative;
 }
 
-.navigation > a {
-	color: #f1f1f1;
+.logo{
+	background: url("../images/logo_200x200.png") no-repeat;
+    background-position: 18px -70px;
+    height: 75px;
+	width: 200px;
+	background-color: darkseagreen;
+    display: inline-block;
+    border-radius: 50%;
+	margin: 15px;
+}
+.navigation{
+	background-color: darkseagreen;
+}
+.navigation  a {
+	display: inline-block;
+	color: #282a35;
 	text-decoration: none;
 	padding: 10px;
+	font-weight: bold;
 }
-
-.navigation > a:hover {
+.navigation  a:hover {
 	background-color: #3a3d4d;
 	color: #f2f2f2;
 }
-
+.login{
+	float: right;
+	margin-top: 40px;
+	margin-right: 10px;
+	color: white;
+}
+.login input{
+	width: 100px;
+	border: 2px solid darkseagreen;
+	outline: 0;
+	border-radius: 5px;
+	height: 30px;
+}
+.login input[type="submit"],
+.login button{
+	font-size: 16px;
+	width: 70px;
+	border: none;
+	background-color: darkseagreen;
+	color: #3a3d4d;
+	cursor: pointer;
+	padding: 5px;
+	font-weight: bold;
+}
+.login input[type="submit"]:hover{
+	background-color: #4e505c;
+}
+.content .pic{
+	width: 40%;
+}
+.content .text{
+	width: 40%;
+	padding: 30px;
+	color: #282a35;
+}
+.content .text.large{
+	width: 80%;
+	font-size: 18px;
+	font-weight: bold;
+}
+.content .section{
+	width: 100%;
+	text-align: center;
+	margin: 10px 0px;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .footer {
 	border-top: 1px solid #eae0c8;
 }
@@ -107,7 +169,7 @@ img {
     top: 200px;
     color: white;
     background-color: #282a35;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
 @keyframes animateleft {
