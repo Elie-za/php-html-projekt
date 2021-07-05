@@ -66,7 +66,10 @@ include 'Product.php';
 				<?php
 				foreach ($products as $product) {
 					echo "<div class='beschreibung'>". " Produktname: " . $product->getName() . " ". $product->getModel() . "</div>";
-					echo "<div class='mySlides'><label>Dieser Scooter auswählen</label><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/></div>";
+					echo "<div class='mySlides'>";
+					echo "<div class='custom-checkbox'><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><label for='" . $product->getId(). "'>Dieser Scooter auswählen</label></div>";
+					echo "<img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/>";
+					echo "</div>";
 					echo "<div class='preis'>". " Mietpreis: <br/>" . $product->getPrice() . " €/Tag" . "</div>";
 				}
 				?>

@@ -29,41 +29,45 @@
 		</div>
 		<div class='container box-shadow formular'>
 			<form action='../php/registrierung.php' method='POST' autocomplete="off">
-				<div>
+				<div class="feld">
 					<input type='text' name="nachname" id='nachname' value="" required>
 					<label for='nachname'>Nachname</label>
 				</div>
-				<div>
+				<div class="feld">
 					<input type='text' name="vorname" id='vorname' value="" required>
 					<label for='vorname'>Vorname</label>
 				</div>
-				<div>
+				<div class="feld">
 					<input type='email' name='email' id='email' value="" required>
 					<label for='email'>Email</label>
 				</div>
-				<div>
+				<div class="feld">
 					<input type='password' name='psw' id='psw' value="" required>
 					<label for='psw'>Passwort</label>
 				</div>
-				<div>
+				<div class="feld">
 					<input type='text' name='age' id='age' value="" required>
 					<label for='age'>Alter</label>
 				</div>
-				<div>
-					<input type='text' name='street' id='street' value="" required>
-					<label for='street'>Straße</label>
+				<div class="row">
+					<div class="feld medium">
+						<input type='text' name='street' id='street' value="" required>
+						<label for='street'>Straße</label>
+					</div>
+					<div class="feld small">
+						<input type='text' name='hausnr' id='hausnr' value="" required>
+						<label for='hausnr'>Hausnummer</label>
+					</div>
 				</div>
-				<div>
-					<input type='text' name='hausnr' id='hausnr' value="" required>
-					<label for='hausnr'>Hausnummer</label>
-				</div>
-				<div>
-					<input type='text' name='plz' id='plz' value="" required>
-					<label for='plz'>Postleitzahl</label>
-				</div>
-				<div>
-					<input type='text' name='ort' id='ort' value="" required>
-					<label for='ort'>Ort</label>
+				<div class="row">
+					<div class="feld medium">
+						<input type='text' name='ort' id='ort' value="" required>
+						<label for='ort'>Ort</label>
+					</div>
+					<div class="feld small">
+						<input type='text' name='plz' id='plz' value="" required>
+						<label for='plz'>Postleitzahl</label>
+					</div>
 				</div>
 				<div>
 					<button type="submit">registrieren</button>
