@@ -36,8 +36,8 @@ function csv_to_array($fileName)
 function getSearchedDataFromFile($searchValue, $filePath)
 {
 	if (file_exists($filePath)) {
-		$customerFile = file($filePath);
-		foreach ($customerFile as $line) {
+		$file = file($filePath);
+		foreach ($file as $line) {
 			$dataArray = (array)explode('|', $line);
 			$isValueInData = in_array($searchValue, $dataArray);
 			if ($isValueInData) {
@@ -46,6 +46,28 @@ function getSearchedDataFromFile($searchValue, $filePath)
 		}
 	}
 	return null;
+}
+
+/**
+ * @param array $searchValues
+ * @param string $filePath
+ * @return array
+ */
+function getMultipleSearchedDataFromFile($searchValues, $filePath)
+{
+	$data = [];
+	if (file_exists($filePath)) {
+		$file = file($filePath);
+		foreach ($file as $line) {
+			$lineData = (array)explode('|', $line);
+			foreach ($searchValues as $searchValue) {
+				if (in_array($searchValue, $lineData)) {
+					$data[$searchValue] = $lineData;
+				}
+			}
+		}
+	}
+	return $data;
 }
 
 /**

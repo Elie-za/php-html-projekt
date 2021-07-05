@@ -1,26 +1,23 @@
 <?php
 
 include 'Product.php';
+include 'functions.php';
 
-var_dump($_POST);
-if (!empty($_POST)) {
-	die();
-}
-$selectedProductId = $_GET['id'];
-$customerFile = file('../data/produkte.csv');
+session_start();
+
+$selectedProductIds = (array)explode(',', $_GET['ids']);
+$multipleProductData = getMultipleSearchedDataFromFile($selectedProductIds, '../data/produkte.csv');
 $products = [];
-foreach ($customerFile as $index => $line) {
-	if ($index !== 0) {
-		$dataArray = (array)explode('|', $line);
-		$products[] = new Product(
-			$dataArray[4],
-			$dataArray[3],
-			$dataArray[0],
-			$dataArray[1],
-			$dataArray[5]
-		);
-	}
+foreach ($multipleProductData as $productData) {
+	$products[] = new Product(
+		$productData[4],
+		$productData[3],
+		$productData[0],
+		$productData[1],
+		$productData[5]
+	);
 }
+$_SESSION['products'] = $products;
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -37,18 +34,25 @@ foreach ($customerFile as $index => $line) {
 			<a href="../html/registrierung.html">Registrierung</a>
 		</div>
 		<div class='container box-shadow formular'>
-			<form action='../php/mieten.php' method='POST' autocomplete="off">
-				<div>
-					<!-- <select name="escooter"> -->
-						<?php foreach ($products as $product): ?>
-							<p>
-							<?php if ($selectedProductId === $product->getId()){
-								echo "Ausgewältes Produkt: " . $product->getName();
-							} ?>
-							</p>
-						<?php endforeach; ?>
-					<!-- </select> -->
-				</div>
+			<form action='../php/bestaetigen.php' method='POST' autocomplete="off">
+					Folgende Artikel sind ausgewählt:
+					<?php foreach ($products as $product): ?>
+					<fieldset style="width: 40%; margin: auto">
+						<span><?= 'Name: ' . $product->getName() ?></span>
+						<span style="width: 50%; display: inline-block">
+							<input type="date" name="von<?=$product->getId()?>" placeholder="Von">
+						</span><br>
+						<span><?= 'Modell: ' . $product->getModel() ?></span>
+						<span style="width: 50%; display: inline-block">
+							<input type="date" name="bis<?=$product->getId()?>" placeholder="Bis">
+						</span><br>
+						<span><?= 'Preis: ' . $product->getPrice() . '€' ?></span>
+						<span style="width: 50%; display: inline-block">
+							<input type="text" name="sz<?=$product->getId()?>" placeholder="Stückzahl">
+						</span>
+					</fieldset>
+					<?php endforeach; ?>
+				<fieldset style="width: 70%">
 				<div>
 					<input type='text' name="nachname" id='nachname' value="" required>
 					<label for='nachname'>Nachname</label>
@@ -85,6 +89,7 @@ foreach ($customerFile as $index => $line) {
 					<input type='text' name='ort' id='ort' value="" required>
 					<label for='ort'>Ort</label>
 				</div>
+				</fieldset>
 				<div>
 					<button type="submit">mieten</button>
 				</div>
@@ -92,4 +97,3 @@ foreach ($customerFile as $index => $line) {
 		</div>
 	</body>
 </html>
-

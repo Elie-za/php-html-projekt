@@ -39,7 +39,7 @@ class Product
 	 * @param string $id
 	 * @param string $name
 	 * @param string $model
-	 * @param string $price
+	 * @param float $price
 	 * @param string|null $currentRelativePath
 	 */
 	public function __construct($filename, $id, $name, $model, $price, $currentRelativePath = null)
