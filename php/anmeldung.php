@@ -22,6 +22,11 @@ $customer = new Customer(
 );
 if ($customer->verifyPassword($_POST['password'])) {
 	$_SESSION['customer'] = $customer;
+	/**
+	 * Extra für das Mietformular damit das Passwortfeld ausgefüllt werden kann. Gibt auch
+	 * andere Methoden (ausblenden des Feldes, zusätzliches Feld des Customer-Objekts).
+	 */
+	$_SESSION['password'] = $_POST['password'];
 	if (empty($_COOKIE['loggedIn'])) {
 		setcookie('e-go-mobility', 'loggedIn', time() + (86400 * 30), '/');
 	}

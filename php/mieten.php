@@ -1,6 +1,7 @@
 <?php
 
 include 'Product.php';
+include 'Customer.php';
 include 'functions.php';
 
 session_start();
@@ -18,6 +19,10 @@ foreach ($multipleProductData as $productData) {
 	);
 }
 $_SESSION['products'] = $products;
+if (isset($_SESSION['customer']) && isset($_SESSION['password'])) {
+	/** @var Customer $customer */
+	$customer = $_SESSION['customer'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -76,42 +81,42 @@ $_SESSION['products'] = $products;
 					<?php endforeach; ?>
 				<fieldset style="width: 70%">
 				<div class="feld">
-					<input type='text' name="nachname" id='nachname' value="" required>
+					<input type='text' name="nachname" id='nachname' value="<?= empty($customer) ? '' : $customer->getNachname() ?>" required>
 					<label for='nachname'>Nachname</label>
 				</div>
 				<div class="feld">
-					<input type='text' name="vorname" id='vorname' value="" required>
+					<input type='text' name="vorname" id='vorname' value="<?= empty($customer) ? '' : $customer->getVorname() ?>" required>
 					<label for='vorname'>Vorname</label>
 				</div>
 				<div class="feld">
-					<input type='email' name='email' id='email' value="" required>
+					<input type='email' name='email' id='email' value="<?= empty($customer) ? '' : $customer->getEmail() ?>" required>
 					<label for='email'>Email</label>
 				</div>
 				<div class="feld">
-					<input type='password' name='psw' id='psw' value="" required>
+					<input type='password' name='psw' id='psw' value="<?= empty($customer) ? '' : $_SESSION['password'] ?>" required>
 					<label for='psw'>Passwort</label>
 				</div>
 				<div class="feld">
-					<input type='text' name='age' id='age' value="" required>
+					<input type='text' name='age' id='age' value="<?= empty($customer) ? '' : $customer->getAge() ?>" required>
 					<label for='age'>Alter</label>
 				</div>
 				<div class="row">
 					<div class="feld medium">
-						<input type='text' name='street' id='street' value="" required>
+						<input type='text' name='street' id='street' value="<?= empty($customer) ? '' : $customer->getStreet() ?>" required>
 						<label for='street'>Straße</label>
 					</div>
 					<div class="feld small">
-						<input type='text' name='hausnr' id='hausnr' value="" required>
+						<input type='text' name='hausnr' id='hausnr' value="<?= empty($customer) ? '' : $customer->getHouseNumber() ?>" required>
 						<label for='hausnr'>Hausnummer</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="feld medium">
-						<input type='text' name='ort' id='ort' value="" required>
+						<input type='text' name='ort' id='ort' value="<?= empty($customer) ? '' : $customer->getPlace() ?>" required>
 						<label for='ort'>Ort</label>
 					</div>
 					<div class="feld small">
-						<input type='text' name='plz' id='plz' value="" required>
+						<input type='text' name='plz' id='plz' value="<?= empty($customer) ? '' : $customer->getZipCode() ?>" required>
 						<label for='plz'>Postleitzahl</label>
 					</div>
 				</div>
