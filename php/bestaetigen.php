@@ -132,9 +132,9 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 						</div>
 					<?php else: ?>
 						<span>Ihre Rechnungsadresse:</span><br>
-						<span><?= $sanitizedData['vorname'] . ' ' . $sanitizedData['nachname'] ?></span><br>
-						<span><?= $sanitizedData['street'] . ' ' . $sanitizedData['hausnr'] ?></span><br>
-						<span><?= $sanitizedData['plz'] . ' ' .  $sanitizedData['ort'] ?></span>
+						<span><?= $customer->getVorname() . ' ' . $customer->getNachname() ?></span><br>
+						<span><?= $customer->getStreet() . ' ' . $customer->getHouseNumber() ?></span><br>
+						<span><?= $customer->getZipCode() . ' ' .  $customer->getPlace() ?></span>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>
