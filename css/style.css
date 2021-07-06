@@ -286,7 +286,11 @@ img {
 .formular {
 	padding: 20px;
 }
-
+.formular p{
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(0, 150, 0);
+}
 .formular .feld {
 	position: relative;
 	height: 60px;
@@ -294,7 +298,9 @@ img {
 	line-height: 60px;
 	margin: 10px auto;
 }
-
+.formular hr{
+	margin: 40px 0;
+}
 .feld.small{
 	width: 150px;
 }
@@ -306,11 +312,13 @@ img {
 }
 .feld label {
 	position: absolute;
-	color: rgb(139, 139, 139);
+	color: rgb(0, 150, 0);
 	top: -10px;
 	left: 5px;
 	transition: 0.2s all;
 	cursor: text;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .feld input {
@@ -318,34 +326,27 @@ img {
 	height: 100%;
 	font-size: 20px;
 	box-shadow: none;
-	border: 0;
-	border-bottom: 2px solid rgb(139, 139, 139);
+	border: none;
+	outline: 0;
+	border-bottom: 2px solid rgb(0, 150, 0);
 	color: #282a35;
 	background-color: inherit;
 	padding-top: 25px;
 	padding-left: 5px;
 }
-
-.feld input[value=""]~label {
-	top: 0;
-}
-
-.feld input:invalid {
-	outline: 0;
+.feld input:placeholder-shown{
 	border-color: rgb(139, 139, 139);
 }
+.feld input:placeholder-shown + label{
+	top: 5px;
+	color: rgb(139, 139, 139);
 
-.feld input[value], .formular input:valid {
-	outline: 0;
 }
-
-.feld input:focus, .formular input:valid {
+.feld input:focus{
 	border-color: rgb(0, 150, 0);
 }
 
-.feld input:focus~label, .formular input:valid~label {
-	font-size: 14px;
-	font-weight: bold;
+.feld input:focus~label {
 	top: -10px;
 	color: rgb(0, 150, 0);
 }

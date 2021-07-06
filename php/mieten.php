@@ -62,67 +62,67 @@ if (isset($_SESSION['customer']) && isset($_SESSION['password'])) {
 		</div>
 		<div class='container box-shadow formular'>
 			<form action='../php/bestaetigen.php' method='POST' autocomplete="off">
-				Folgende Artikel sind ausgewählt:
+				<h2>Folgende Artikel sind ausgewählt:</h2>
 				<?php foreach ($products as $product): ?>
-					<fieldset style="width: 40%; margin: auto">
-						<span><?= 'Name: ' . $product->getName() ?></span>
-						<span style="width: 50%; display: inline-block">
-							<input type="date" name="von<?=$product->getId()?>" placeholder="Von">
-						</span>
-						<br>
-						<span><?= 'Modell: ' . $product->getModel() ?></span>
-						<span style="width: 50%; display: inline-block">
-							<input type="date" name="bis<?=$product->getId()?>" placeholder="Bis">
-						</span>
-						<br>
-						<span><?= 'Preis: ' . $product->getPrice() . '€' ?></span>
-						<span style="width: 50%; display: inline-block">
-							<input type="text" name="sz<?=$product->getId()?>" placeholder="Stückzahl">
-						</span>
-					</fieldset>
+						<p><?= 'Name: ' . $product->getName() ?></p>
+						<p><?= 'Modell: ' . $product->getModel() ?></p>
+						<p><?= 'Preis: ' . $product->getPrice() . '€/Tag' ?></p>
+						<div class="feld">
+							<input type="date" value="" name="von<?=$product->getId()?>" >
+							<label>von</label>
+						</div>
+						<div class="feld">
+							<input type="date" value="" name="bis<?=$product->getId()?>" >
+							<label>bis</label>
+						</div>
+						<div class="feld">
+							<input pattern="[0-9]+" type="text" value="" name="sz<?=$product->getId()?>" placeholder=" ">
+							<label>Stückzahl</label>
+						</div>
+						<hr/>
 				<?php endforeach; ?>
-				<fieldset style="width: 70%">
+				<h2>Geben Sie die folgenden Daten ein</h2>
+				<p>um die Reservierung abzuschließen</p>
 					<div class="feld">
-						<input type='text' name="nachname" id='nachname' value="<?= empty($customer) ? '' : $customer->getNachname() ?>" required>
+						<input type='text' name="nachname" id='nachname' value="<?= empty($customer) ? '' : $customer->getNachname() ?>" placeholder=" " required>
 						<label for='nachname'>Nachname</label>
 					</div>
 					<div class="feld">
-						<input type='text' name="vorname" id='vorname' value="<?= empty($customer) ? '' : $customer->getVorname() ?>" required>
+						<input type='text' name="vorname" id='vorname' value="<?= empty($customer) ? '' : $customer->getVorname() ?>" placeholder=" " required>
 						<label for='vorname'>Vorname</label>
 					</div>
 					<div class="feld">
-						<input type='email' name='email' id='email' value="<?= empty($customer) ? '' : $customer->getEmail() ?>" required>
+						<input type='email' name='email' id='email' value="<?= empty($customer) ? '' : $customer->getEmail() ?>" placeholder=" " required>
 						<label for='email'>Email</label>
 					</div>
 					<div class="feld">
-						<input type='password' name='psw' id='psw' value="<?= empty($customer) ? '' : $_SESSION['password'] ?>" required>
+						<input type='password' name='psw' id='psw' value="<?= empty($customer) ? '' : $_SESSION['password'] ?>" placeholder=" " required>
 						<label for='psw'>Passwort</label>
 					</div>
 					<div class="feld">
-						<input type='text' name='age' id='age' value="<?= empty($customer) ? '' : $customer->getAge() ?>" required>
+						<input placeholder=" " type='text' name='age' id='age' value="<?= empty($customer) ? '' : $customer->getAge() ?>" placeholder=" " required>
 						<label for='age'>Alter</label>
 					</div>
 					<div class="row">
 						<div class="feld medium">
-							<input type='text' name='street' id='street' value="<?= empty($customer) ? '' : $customer->getStreet() ?>" required>
+							<input type='text' name='street' id='street' value="<?= empty($customer) ? '' : $customer->getStreet() ?>" placeholder=" " required>
 							<label for='street'>Straße</label>
 						</div>
 						<div class="feld small">
-							<input type='text' name='hausnr' id='hausnr' value="<?= empty($customer) ? '' : $customer->getHouseNumber() ?>" required>
+							<input type='text' name='hausnr' id='hausnr' value="<?= empty($customer) ? '' : $customer->getHouseNumber() ?>" placeholder=" " required>
 							<label for='hausnr'>Hausnummer</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="feld medium">
-							<input type='text' name='ort' id='ort' value="<?= empty($customer) ? '' : $customer->getPlace() ?>" required>
+							<input type='text' name='ort' id='ort' value="<?= empty($customer) ? '' : $customer->getPlace() ?>" placeholder=" " required>
 							<label for='ort'>Ort</label>
 						</div>
 						<div class="feld small">
-							<input type='text' name='plz' id='plz' value="<?= empty($customer) ? '' : $customer->getZipCode() ?>" required>
+							<input type='text' name='plz' id='plz' value="<?= empty($customer) ? '' : $customer->getZipCode() ?>" placeholder=" " required>
 							<label for='plz'>Postleitzahl</label>
 						</div>
 					</div>
-				</fieldset>
 				<div>
 					<button type="submit">mieten</button>
 				</div>
