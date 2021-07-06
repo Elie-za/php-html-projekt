@@ -3,6 +3,9 @@
 include 'Customer.php';
 include 'functions.php';
 
+if (empty($_POST)) {
+	header('Location: /php-html-projekt/html/registrierung.html');
+}
 $customerData = sanitizeUserInput($_POST, ['email']);
 
 $customer = new Customer(
