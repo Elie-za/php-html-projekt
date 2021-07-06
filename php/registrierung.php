@@ -27,6 +27,7 @@ $customerWrittenIntoFile = $customer->writeDataIntoFile();
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Registrierung <?php if ($customerWrittenIntoFile) { echo 'abgeschlossen'; } else { echo 'fehlgeschlagen'; }?></title>
 		<link rel="stylesheet" href="../css/style.css">
+		<link rel="icon" href="../images/logo_200x200.png" type="image/gif" sizes="16x16">
 	</head>
 	<body>
 		<div class="header">
