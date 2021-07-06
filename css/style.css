@@ -1,5 +1,4 @@
 * {
-	user-select: none;
 	font-family: Arial, Helvetica, sans-serif;
 	box-sizing: border-box;
 }
@@ -252,6 +251,7 @@ img {
 	color: gray;
 	border-radius: 10px;
 	background-color: white;
+	user-select: none;
 }
 
 .box-shadow {
@@ -348,6 +348,7 @@ img {
 	color: rgb(0, 150, 0);
 }
 button{
+	user-select: none;
 	font-size: 20px;
 	padding: 5px 15px;
 	margin-top: 10px;
