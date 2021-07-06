@@ -4,7 +4,7 @@ include 'Customer.php';
 include 'functions.php';
 
 if (empty($_POST)) {
-	header('Location: /php-html-projekt/html/registrierung.html');
+	header('Location: ../html/registrierung.html');
 }
 $customerData = sanitizeUserInput($_POST, ['email']);
 
@@ -42,7 +42,7 @@ $customerWrittenIntoFile = $customer->writeDataIntoFile();
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
-					You are logged in.
+					Sie sind angemeldet
 					<button onclick="window.location.href = '../php/logout.php';">Logout</button>
 				</div>
 			</div>

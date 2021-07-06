@@ -7,7 +7,7 @@ include 'functions.php';
 session_start();
 
 if (empty($_POST)) {
-	header('Location: /php-html-projekt/html/registrierung.html');
+	header('Location: ../html/registrierung.html');
 }
 $sanitizedData = sanitizeUserInput($_POST, ['email']);
 
@@ -31,7 +31,7 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
-					You are logged in.
+					Sie sind angemeldet
 					<button onclick="window.location.href = '../php/logout.php';">Logout</button>
 				</div>
 			</div>

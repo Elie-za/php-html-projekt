@@ -23,7 +23,7 @@ include 'Product.php';
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
-					You are logged in.
+					Sie sind angemeldet
 					<button onclick="window.location.href = '../php/logout.php';">Logout</button>
 				</div>
 			</div>

@@ -9,7 +9,7 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 
 $customerData = getSearchedDataFromFile($sanitizedData['email'], '../data/customer_data.txt');
 if (empty($customerData)) {
-	header('Location: /php-html-projekt/html/registrierung.html');
+	header('Location: ../html/registrierung.html');
 }
 $customer = new Customer(
 	$customerData[0],
