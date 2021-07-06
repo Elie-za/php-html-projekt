@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>E-Go Mobility</title>
-	<link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-	<div class="header">
-		<div class="logo">
-		</div>
-		<div class="login">
-			<form action="../php/anmeldung.php" method="post" id="login">
-				<input name="email" type="text">
-				<input name="password" type="text">
-				<input type="submit" value="Login">
-			</form>
-			<div id="session">
-				You are logged in.
-				<button onclick="window.location.href = '../php/logout.php';">Logout</button>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>E-Go Mobility</title>
+		<link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="header">
+			<div class="logo"></div>
+			<div class="login">
+				<form action="../php/anmeldung.php" method="post" id="login">
+					<input name="email" type="text">
+					<input name="password" type="text">
+					<input type="submit" value="Login">
+				</form>
+				<div id="session">
+					You are logged in.
+					<button onclick="window.location.href = '../php/logout.php';">Logout</button>
+				</div>
+			</div>
+			<div class="navigation">
+				<a href="index.html">Startseite</a>
+				<a href="../php/bildergallery.php">Bildergallerie</a>
+				<a href="registrierung.html">Registrierung</a>
 			</div>
 		</div>
-		<div class="navigation">
-			<a href="index.html">Startseite</a>
-			<a href="../php/bildergallery.php">Bildergallerie</a>
-			<a href="registrierung.html">Registrierung</a>
-		</div>
-	</div>
-	<div class="content box-shadow">
-		<div class="section">
-			<div class="pic">
-				<img src="../images/saarbruecken.jpg" alt="Saarbrücken, die schöne Hauptstadt Saarlands">
+		<div class="content box-shadow">
+			<div class="section">
+				<div class="pic">
+					<img src="../images/saarbruecken.jpg" alt="Saarbrücken, die schöne Hauptstadt Saarlands">
+				</div>
+				<div class="text">
+					<h2>Das beste Unternehmen im Saarland</h2>
+					<div>
+						Seit 2018 verleihen wir im Herzen des Saarlands qualitativ hochwertige E-Scooter.
+						E-Go Mobility zeichnet sich vorallem durch seine freundlichen, kompetenten und erfahrenen
+						Mitarbeiter
+						aus. Unser Ziel ist es eine bequeme, umweltfreundlichere Alternative zum Auto zu bieten. Hierfür ist
+						das Saarland aufgrund seiner Größe eine optimale Testumgebung für unser Unternehmen. Egal ob zu Fuß,
+						mit dem Auto oder mit unseren E-Scootern, jedes Ziel ist innerhalb höchstens einer Stunde
+						erreichbar.
+					</div>
+				</div>
 			</div>
-			<div class="text">
-				<h2>Das beste Unternehmen im Saarland</h2>
-				<div>
-					Seit 2018 verleihen wir im Herzen des Saarlands qualitativ hochwertige E-Scooter.
-					E-Go Mobility zeichnet sich vorallem durch seine freundlichen, kompetenten und erfahrenen
-					Mitarbeiter
-					aus. Unser Ziel ist es eine bequeme, umweltfreundlichere Alternative zum Auto zu bieten. Hierfür ist
-					das Saarland aufgrund seiner Größe eine optimale Testumgebung für unser Unternehmen. Egal ob zu Fuß,
-					mit dem Auto oder mit unseren E-Scootern, jedes Ziel ist innerhalb höchstens einer Stunde
-					erreichbar.
+			<div class="section">
+				<div class="text large">
+					Helfen Sie uns unsere Idee einer umweltschonenden, spaßigen Alternative auch in andere, größere,
+					Bundesländer zu exportieren. Reservieren sie jetzt einen E-Scooter.
+				</div>
+			</div>
+			<div class="section">
+				<div class="text">
+					<h2>Lorem ipsum dolor sit ame</h2>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+					labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+					ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+					dolor sit amet, consetetur sadipscing elitr, sed diam
+				</div>
+				<div class="pic">
+					<img src="../images/background.jpg" alt="E-Scooter">
 				</div>
 			</div>
 		</div>
-		<div class="section">
-			<div class="text large">
-				Helfen Sie uns unsere Idee einer umweltschonenden, spaßigen Alternative auch in andere, größere,
-				Bundesländer zu exportieren. Reservieren sie jetzt einen E-Scooter.
+		<div class="footer">
+			<div>
+				E-Go Mobility<br>
+				Dudweilerstraße 17<br>
+				66111 Saarbrücken<br>
+				Deutschland<br>
+				Tel.: +49 723 69420
 			</div>
-		</div>
-		<div class="section">
-			<div class="text">
-				<h2>Lorem ipsum dolor sit ame</h2>
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-				labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-				ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-				dolor sit amet, consetetur sadipscing elitr, sed diam
+			<div>
+				<span>Registergericht</span>
+				<span>Saarbrücken<br></span>
+				<span>Umsatzsteuer-ID:</span>
+				<span>DE31415926<br></span>
+				<span id="imprint-ceo">Geschäftsführer:</span>
+				<span id="imprint-ceo-names">Dr. Acula Graf,<br>Dr. Vivien Agina</span>
 			</div>
-			<div class="pic">
-				<img src="../images/background.jpg" alt="E-Scooter">
-			</div>
+			<script>
+				if (document.cookie.includes('e-go-mobility=loggedIn')) {
+					document.getElementById('login').className = 'display-none';
+				} else {
+					document.getElementById('session').className = 'display-none';
+				}
+			</script>
 		</div>
-	</div>
-	<div class="footer">
-		<div>
-			E-Go Mobility<br>
-			Dudweilerstraße 17<br>
-			66111 Saarbrücken<br>
-			Deutschland<br>
-			Tel.: +49 723 69420
-		</div>
-		<div>
-			<span>Registergericht</span>
-			<span>Saarbrücken<br></span>
-			<span>Umsatzsteuer-ID:</span>
-			<span>DE31415926<br></span>
-			<span id="imprint-ceo">Geschäftsführer:</span>
-			<span id="imprint-ceo-names">Dr. Acula Graf,<br>Dr. Vivien Agina</span>
-		</div>
-		<script>
-			if (document.cookie.includes('e-go-mobility=loggedIn')) {
-				document.getElementById('login').className = 'display-none';
-			} else {
-				document.getElementById('session').className = 'display-none';
-			}
-		</script>
-	</div>
-</body>
-
+	</body>
 </html>
