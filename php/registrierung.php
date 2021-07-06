@@ -17,7 +17,7 @@ $customer = new Customer(
 	$customerData['age']
 );
 
-$costumerAlreadyExists = $customer->writeDataIntoFile();
+$customerWrittenIntoFile = $customer->writeDataIntoFile();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $costumerAlreadyExists = $customer->writeDataIntoFile();
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Registrierung erfolgreich abgeschlossen</title>
+		<title>Registrierung <?php if ($customerWrittenIntoFile) { echo 'abgeschlossen'; } else { echo 'fehlgeschlagen'; }?></title>
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
@@ -56,7 +56,7 @@ $costumerAlreadyExists = $customer->writeDataIntoFile();
 			</script>
 		</div>
 		<div>
-			<?php if ($costumerAlreadyExists): ?>
+			<?php if ($customerWrittenIntoFile): ?>
 				Sie haben sich mit folgenden Daten erfolgreich registriert:<br>
 				<?= $customer->getNachname() . ' ' . $customer->getVorname() . '<br>' ?>
 				<?= $customer->getEmail() . '<br>' ?>
