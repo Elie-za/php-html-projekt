@@ -149,6 +149,7 @@ img {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 
 .mySlides {
@@ -159,8 +160,17 @@ img {
 	object-fit:scale-down;
 	width: 350px;
 }
+.custom-checkbox {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
 .custom-checkbox label{
 	cursor: pointer;
+	line-height: 30px;
+	height: 30px;
+	display: flex;
+	font-weight: bold;
 }
 .custom-checkbox input{
 	display: none;
@@ -169,8 +179,6 @@ img {
 	content: "";
 	box-sizing: border-box;
 	visibility: visible;
-	position: absolute;
-	top: 5px;
 	display: inline-block;
 	height: 30px;
 	width: 30px;
@@ -180,6 +188,7 @@ img {
 	line-height: 30px;
 	font-size: 24px;
 	color: white;
+	margin-right: 5px;
 }
 .custom-checkbox input:checked + label::before{
 	content: "✔";

@@ -63,11 +63,14 @@ include 'Product.php';
 		<div class='slide-show'>
 			<div class='left box-shadow' onclick='prevDiv()'>&#10094;</div>
 			<div class='bilder box-shadow'>
+
 				<?php
 				foreach ($products as $product) {
+					echo "<div class='custom-checkbox'>";
+					echo "<input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'>";
+					echo "<label for='" . $product->getId(). "'>Scooter auswählen</label></div>";
 					echo "<div class='beschreibung'>". " Produktname: " . $product->getName() . " ". $product->getModel() . "</div>";
 					echo "<div class='mySlides'>";
-					echo "<div class='custom-checkbox'><input class='scooter-checkbox' type='checkbox' id='". $product->getId() ."'><label for='" . $product->getId(). "'>Dieser Scooter auswählen</label></div>";
 					echo "<img src='" . $product->getCurrentRelativePath() . "' id='" . $product->getId() . "'/>";
 					echo "</div>";
 					echo "<div class='preis'>". " Mietpreis: <br/>" . $product->getPrice() . " €/Tag" . "</div>";
@@ -87,7 +90,7 @@ include 'Product.php';
 			?>
 		</div>
 		<!-- Eine Javascript Funktion, balbalbal -->
-		<button onclick="mieten()">Scooter mieten</button>
+		<button onclick="mieten()">ausgewählte Produkte mieten</button>
 	</div>
 	<div class="footer">
 		<div>
@@ -112,6 +115,7 @@ include 'Product.php';
 		var dots = document.getElementsByClassName("demo");
 		var beschreibung = document.getElementsByClassName("beschreibung");
 		var preis = document.getElementsByClassName("preis");
+		var checkbox = document.getElementsByClassName("custom-checkbox");
 		showDivs(slideIndex);
 
 		function hideDivs() {
@@ -120,9 +124,8 @@ include 'Product.php';
 					.replace(" block", "");
 				beschreibung[i].className = beschreibung[i].className.replace(" block", "");
 				preis[i].className = preis[i].className.replace(" block", "");
-			}
-			for (var i = 0; i < dots.length; i++) {
 				dots[i].className = dots[i].className.replace(" white", "");
+				checkbox[i].style.display = "none"; 
 			}
 		}
 
@@ -136,6 +139,7 @@ include 'Product.php';
 			beschreibung[slideIndex - 1].className += " block";
 			preis[slideIndex - 1].className += " block";
 			dots[slideIndex - 1].className += " white";
+			checkbox[slideIndex - 1].style.display = "block"; 
 		}
 
 		function nextDiv() {
@@ -148,25 +152,23 @@ include 'Product.php';
 			beschreibung[slideIndex - 1].className += " block";
 			preis[slideIndex - 1].className += " block";
 			dots[slideIndex - 1].className += " white";
+			checkbox[slideIndex - 1].style.display = "block";
 		}
 
 		function showDivs(n) {
 			hideDivs();
 			if (n > slideIndex) {
 				x[n - 1].className += " animate-right";
-				beschreibung[n - 1].className += " block";
-				preis[n - 1].className += " block";
 			}
 			if (n === slideIndex) {
 				x[n - 1].className += " block";
-				beschreibung[n - 1].className += " block";
-				preis[n - 1].className += " block";
 			}
 			if (n < slideIndex) {
 				x[n - 1].className += " animate-left";
-				beschreibung[n - 1].className += " block";
-				preis[n - 1].className += " block";
 			}
+			beschreibung[n - 1].className += " block";
+			preis[n - 1].className += " block";
+			checkbox[n - 1].style.display = "block";
 			dots[n - 1].className += " white";
 			slideIndex = n;
 		}
