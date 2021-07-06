@@ -12,8 +12,8 @@
 			<div class="logo"></div>
 			<div class="login">
 				<form action="../php/anmeldung.php" method="post" id="login">
-					<input name="email" type="text">
-					<input name="password" type="text">
+					<input placeholder="E-Mail" name="email" type="text">
+					<input placeholder="Passwort" name="password" type="password">
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
@@ -23,49 +23,50 @@
 			</div>
 			<div class="navigation">
 				<a href="index.html">Startseite</a>
-				<a href="../php/bildergallery.php">Bildergallerie</a>
+				<a href="../php/bildergallery.php">Produkte</a>
 				<a href="registrierung.html">Registrierung</a>
 			</div>
 		</div>
 		<div class='container box-shadow formular'>
+			<h2>Geben Sie folgenden</h2>
 			<form action='../php/registrierung.php' method='POST' autocomplete="off">
 				<div class="feld">
-					<input type='text' name="nachname" id='nachname' value="" required>
+					<input type='text' name="nachname" id='nachname' placeholder=" " required>
 					<label for='nachname'>Nachname</label>
 				</div>
 				<div class="feld">
-					<input type='text' name="vorname" id='vorname' value="" required>
+					<input type='text' name="vorname" id='vorname' placeholder=" " required>
 					<label for='vorname'>Vorname</label>
 				</div>
 				<div class="feld">
-					<input type='email' name='email' id='email' value="" required>
+					<input type='email' name='email' id='email' placeholder=" " required>
 					<label for='email'>Email</label>
 				</div>
 				<div class="feld">
-					<input type='password' name='psw' id='psw' value="" required>
+					<input type='password' name='psw' id='psw' placeholder=" " required>
 					<label for='psw'>Passwort</label>
 				</div>
 				<div class="feld">
-					<input type='text' name='age' id='age' value="" required>
+					<input type='text' name='age' id='age' placeholder=" " required>
 					<label for='age'>Alter</label>
 				</div>
 				<div class="row">
 					<div class="feld medium">
-						<input type='text' name='street' id='street' value="" required>
+						<input type='text' name='street' id='street' placeholder=" " required>
 						<label for='street'>Straße</label>
 					</div>
 					<div class="feld small">
-						<input type='text' name='hausnr' id='hausnr' value="" required>
+						<input type='text' name='hausnr' id='hausnr' placeholder=" " required>
 						<label for='hausnr'>Hausnummer</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="feld medium">
-						<input type='text' name='ort' id='ort' value="" required>
+						<input type='text' name='ort' id='ort' placeholder=" " required>
 						<label for='ort'>Ort</label>
 					</div>
 					<div class="feld small">
-						<input type='text' name='plz' id='plz' value="" required>
+						<input type='text' name='plz' id='plz' placeholder=" " required>
 						<label for='plz'>Postleitzahl</label>
 					</div>
 				</div>

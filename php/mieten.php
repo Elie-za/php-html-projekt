@@ -38,8 +38,8 @@ if (isset($_SESSION['customer']) && isset($_SESSION['password'])) {
 			<div class="logo"></div>
 			<div class="login">
 				<form action="anmeldung.php" method="post" id="login">
-					<input name="email" type="text">
-					<input name="password" type="text">
+					<input placeholder="E-Mail" name="email" type="text">
+					<input placeholder="Passwort" name="password" type="password">
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
@@ -49,7 +49,7 @@ if (isset($_SESSION['customer']) && isset($_SESSION['password'])) {
 			</div>
 			<div class="navigation">
 				<a href="../html/index.html">Startseite</a>
-				<a href="bildergallery.php">Bildergallerie</a>
+				<a href="bildergallery.php">Produkte</a>
 				<a href="../html/registrierung.html">Registrierung</a>
 			</div>
 			<script>

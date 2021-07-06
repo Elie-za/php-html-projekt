@@ -37,8 +37,8 @@ $customerWrittenIntoFile = $customer->writeDataIntoFile();
 			<div class="logo"></div>
 			<div class="login">
 				<form action="anmeldung.php" method="post" id="login">
-					<input name="email" type="text">
-					<input name="password" type="text">
+					<input placeholder="E-Mail" name="email" type="text">
+					<input placeholder="Passwort" name="password" type="password">
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
@@ -48,7 +48,7 @@ $customerWrittenIntoFile = $customer->writeDataIntoFile();
 			</div>
 			<div class="navigation">
 				<a href="../html/index.html">Startseite</a>
-				<a href="bildergallery.php">Bildergallerie</a>
+				<a href="bildergallery.php">Produkte</a>
 				<a href="../html/registrierung.html">Registrierung</a>
 			</div>
 			<script>
@@ -59,7 +59,7 @@ $customerWrittenIntoFile = $customer->writeDataIntoFile();
 				}
 			</script>
 		</div>
-		<div>
+		<div class="box-shadow result">
 			<?php if ($customerWrittenIntoFile): ?>
 				Sie haben sich mit folgenden Daten erfolgreich registriert:<br>
 				<?= $customer->getNachname() . ' ' . $customer->getVorname() . '<br>' ?>

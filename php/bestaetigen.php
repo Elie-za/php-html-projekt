@@ -26,8 +26,8 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 			<div class="logo"></div>
 			<div class="login">
 				<form action="anmeldung.php" method="post" id="login">
-					<input name="email" type="text">
-					<input name="password" type="text">
+					<input placeholder="E-Mail" name="email" type="text">
+					<input placeholder="Passwort" name="password" type="password">
 					<input type="submit" value="Login">
 				</form>
 				<div id="session">
@@ -37,7 +37,7 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 			</div>
 			<div class="navigation">
 				<a href="../html/index.html">Startseite</a>
-				<a href="bildergallery.php">Bildergallerie</a>
+				<a href="bildergallery.php">Produkte</a>
 				<a href="../html/registrierung.html">Registrierung</a>
 			</div>
 			<script>
@@ -48,14 +48,16 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 				}
 			</script>
 		</div>
-		<div>
+		<div class="box-shadow result">
+			<h2>Danke, dass Sie sich für uns entschieden haben!</h2>
+			<h4>Bestätigung</h4>
 			<div>
 				<?php
 					$gesamtKosten = 0;
 					/** @var Product $product */
 					foreach ($_SESSION['products'] as $product):
 				?>
-					<div style="width: 40%; margin: 10px 0">
+					<div>
 						<?php
 							$fromDate = new DateTime($sanitizedData['von' . $product->getId()]);
 							$toDate = new DateTime($sanitizedData['bis' . $product->getId()]);
@@ -65,28 +67,27 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 								$clonedFromDate->modify('+1 day');
 								$i++;
 							}
-							$kosten = $product->getPrice() * (int)$sanitizedData['sz' . $product->getId()] * $i;
+							$kosten = (int)$product->getPrice() * (int)$sanitizedData['sz' . $product->getId()] * $i;
 							$gesamtKosten += $kosten;
 						?>
-						<span>Name: </span><span><?= $product->getName() ?></span>
-						<span>Von: </span><span><?= $fromDate->format('d.m.Y') ?></span><br>
-						<span>Modell: </span><span><?= $product->getModel() ?></span>
-						<span>Bis: </span><span><?= $toDate->format('d.m.Y') ?></span><br>
-						<span>Stückzahl: </span><span><?= (int)$sanitizedData['sz' . $product->getId()] ?></span>
-						<span>Geliehene Tage: </span><span><?= $i ?></span><br>
-						<span>Preis: </span>
-						<span><?= $kosten ?> €</span>
+						<span>Scootername: </span><span><?= $product->getName() . " " . $product->getModel() ?></span><br/>
+						<span>Geliehene Tage: </span><span><?= $i ?></span><br/>
+						<span>Von: </span><span><b><?= $fromDate->format('d.m.Y') ?></b></span>
+						<span>Bis: </span><span><b><?= $toDate->format('d.m.Y') ?></b></span><br>
+						<span>Stückzahl: </span><span><?= (int)$sanitizedData['sz' . $product->getId()] ?></span><br/>
+						<span>Mietkosten: </span><b><span><?= $kosten ?> €</b></span><br/><br/>
 					</div>
 				<?php endforeach; ?>
-				<div style="width: 40%; border-top: 1px solid black">Gesamtkosten: <?= $gesamtKosten ?> €</div>
+				<hr/>
+				<h4>Gesamtkosten: <?= $gesamtKosten ?> €</h4>
 			</div>
-			<div style="float: right">
+			<div>
 				<?php if (!empty($_SESSION['customer']) && empty($sanitizedData['email'])): ?>
 					<?php
 						/** @var Customer $customer */
 						$customer = $_SESSION['customer'];
 					?>
-					<span>Ihre Rechnungsadresse:</span><br>
+					<span><b>Ihre Rechnungsadresse:</b></span>
 					<span><?= $customer->getVorname() . ' ' . $customer->getNachname() ?></span><br>
 					<span><?= $customer->getStreet() . ' ' . $customer->getHouseNumber() ?></span><br>
 					<span><?= $customer->getZipCode() . ' ' .  $customer->getPlace() ?></span>
@@ -131,7 +132,7 @@ $sanitizedData = sanitizeUserInput($_POST, ['email']);
 							Falls Sie Hilfe benötigen, können Sie uns unter folgender Nummer erreichen +49 723 69420!
 						</div>
 					<?php else: ?>
-						<span>Ihre Rechnungsadresse:</span><br>
+						<span><b>Ihre Rechnungsadresse:</b></span><br/>
 						<span><?= $customer->getVorname() . ' ' . $customer->getNachname() ?></span><br>
 						<span><?= $customer->getStreet() . ' ' . $customer->getHouseNumber() ?></span><br>
 						<span><?= $customer->getZipCode() . ' ' .  $customer->getPlace() ?></span>
