@@ -34,8 +34,7 @@ if (isset($_SESSION['customer']) && isset($_SESSION['password'])) {
 	</head>
 	<body>
 		<div class="header">
-			<div class="logo">
-			</div>
+			<div class="logo"></div>
 			<div class="login">
 				<form action="anmeldung.php" method="post" id="login">
 					<input name="email" type="text">
