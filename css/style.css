@@ -24,12 +24,12 @@ body {
 
 .logo{
 	background: url("../images/logo_200x200.png") no-repeat;
-    background-position: 18px -70px;
-    height: 75px;
+	background-position: 18px -70px;
+	height: 75px;
 	width: 200px;
 	background-color: darkseagreen;
-    display: inline-block;
-    border-radius: 50%;
+	display: inline-block;
+	border-radius: 50%;
 	margin: 15px;
 }
 .navigation{
@@ -89,19 +89,20 @@ body {
 .content .section{
 	width: 100%;
 	text-align: center;
-	margin: 10px 0px;
+	margin: 10px 0;
 	display: flex;
-    justify-content: space-around;
-    align-items: center;
+	justify-content: space-around;
+	align-items: center;
 }
 .footer {
 	border-top: 1px solid #eae0c8;
 }
 
-.footer>div, .footer>form {
+.footer>div {
 	display: inline-block;
 	vertical-align: top;
 	padding: 15px 0 0 15px;
+	margin-right: 70px;
 }
 
 .footer > div > span:nth-child(odd) {
@@ -121,7 +122,7 @@ body {
 .container {
 	width: 100%;
 	text-align: center;
-	margin: 30px 0px;
+	margin: 30px 0;
 }
 
 .slide-show {
@@ -194,14 +195,14 @@ img {
 .slide-show .preis{
 	width: 150px;
 	display: none;
-	padding: 10px;    
+	padding: 10px;
 	position: relative;
-    top: 200px;
+	top: 200px;
 	font-size: 16px;
 	font-weight: bold;
-    color: white;
-    background-color: #282a35;
-    border-radius: 2px;
+	color: white;
+	background-color: #282a35;
+	border-radius: 2px;
 }
 
 @keyframes animateleft {
@@ -255,7 +256,7 @@ img {
 
 .box-shadow {
 	background-color: white;
-	box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+	box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
 }
 
 .left:hover, .right:hover {
