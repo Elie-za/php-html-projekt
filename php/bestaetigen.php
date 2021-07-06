@@ -16,10 +16,31 @@ session_start();
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
-		<div class="navigation">
-			<a href="../html/index.html">Startseite</a>
-			<a href="bildergallery.php">Bildergallerie</a>
-			<a href="../html/registrierung.html">Registrierung</a>
+		<div class="header">
+			<div class="logo"></div>
+			<div class="login">
+				<form action="anmeldung.php" method="post" id="login">
+					<input name="email" type="text">
+					<input name="password" type="text">
+					<input type="submit" value="Login">
+				</form>
+				<div id="session">
+					You are logged in.
+					<button onclick="window.location.href = '../php/logout.php';">Logout</button>
+				</div>
+			</div>
+			<div class="navigation">
+				<a href="../html/index.html">Startseite</a>
+				<a href="bildergallery.php">Bildergallerie</a>
+				<a href="../html/registrierung.html">Registrierung</a>
+			</div>
+			<script>
+				if (document.cookie.includes('e-go-mobility=loggedIn')) {
+					document.getElementById('login').className = 'display-none';
+				} else {
+					document.getElementById('session').className = 'display-none';
+				}
+			</script>
 		</div>
 		<div>
 			<div>
@@ -94,22 +115,39 @@ session_start();
 						}
 						if ($customer->getAge() < 18):
 					?>
-							<div>
-								Es tut uns leid, aber Sie sind leider noch nicht volljährig!<br>
-								Sie müssen mindestens 18 Jahre alt sein um einen E-Scooter mieten zu dürfen!
-							</div>
-						<?php elseif (!$customer->verifyPassword($_POST['psw'])): ?>
-							<div>
-								Ihr Passwort stimmt nicht mit dem bereits hinterlegten Passwort überein!<br>
-								Falls Sie Hilfe benötigen, können Sie uns unter folgender Nummer erreichen +49 723 69420!
-							</div>
-						<?php else: ?>
-							<span>Ihre Rechnungsadresse:</span><br>
-							<span><?= $_POST['vorname'] . ' ' . $_POST['nachname'] ?></span><br>
-							<span><?= $_POST['street'] . ' ' . $_POST['hausnr'] ?></span><br>
-							<span><?= $_POST['plz'] . ' ' .  $_POST['ort'] ?></span>
-						<?php endif; ?>
+						<div>
+							Es tut uns leid, aber Sie sind leider noch nicht volljährig!<br>
+							Sie müssen mindestens 18 Jahre alt sein um einen E-Scooter mieten zu dürfen!
+						</div>
+					<?php elseif (!$customer->verifyPassword($_POST['psw'])): ?>
+						<div>
+							Ihr Passwort stimmt nicht mit dem bereits hinterlegten Passwort überein!<br>
+							Falls Sie Hilfe benötigen, können Sie uns unter folgender Nummer erreichen +49 723 69420!
+						</div>
+					<?php else: ?>
+						<span>Ihre Rechnungsadresse:</span><br>
+						<span><?= $_POST['vorname'] . ' ' . $_POST['nachname'] ?></span><br>
+						<span><?= $_POST['street'] . ' ' . $_POST['hausnr'] ?></span><br>
+						<span><?= $_POST['plz'] . ' ' .  $_POST['ort'] ?></span>
+					<?php endif; ?>
 				<?php endif; ?>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				E-Go Mobility<br>
+				Dudweilerstraße 17<br>
+				66111 Saarbrücken<br>
+				Deutschland<br>
+				Tel.: +49 723 69420
+			</div>
+			<div>
+				<span>Registergericht</span>
+				<span>Saarbrücken<br></span>
+				<span>Umsatzsteuer-ID:</span>
+				<span>DE31415926<br></span>
+				<span id="imprint-ceo">Geschäftsführer:</span>
+				<span id="imprint-ceo-names">Dr. Acula Graf,<br>Dr. Vivien Agina</span>
 			</div>
 		</div>
 	</body>
